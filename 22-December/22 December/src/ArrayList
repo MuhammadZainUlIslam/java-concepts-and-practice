@@ -1,0 +1,95 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
+import java.util.Spliterator;
+
+public class Main {
+    public static void main(String[] args){
+        ArrayList<String> Student = new ArrayList<>();
+        ArrayList<String> Reg_No= new ArrayList<>();
+        Student.add("Ali");
+        Student.add("Asif");
+        Student.add("Amir");
+        Student.add("Ibtasam");
+        Student.add("Zulqarnain");
+        Reg_No.add("2021");
+        Reg_No.add("2022");
+        Reg_No.add("2023");
+        Reg_No.add("2024");
+        Reg_No.add("2025");
+        Reg_No.add("2026");
+        System.out.println("Students: "+ Student);
+        System.out.println("Registration No: "+ Student);
+        Student.remove(3);
+        System.out.println(Student);
+        ArrayList<String> Student2 = (ArrayList)Student.clone();
+        Student2.add("Adam");
+        Student2.add("Zain");
+        Student2.add("Zaid");
+        Student2.add("Imran");
+        Student.addAll(Student2);
+        System.out.println("Student"+Student);
+        System.out.println("Student_2"+Student2);
+        System.out.println("Student_2"+Student);
+        //Reg_No.clear();
+        //Student.clear();
+        //Student2.clear();
+        System.out.println(Reg_No.contains("2026"));
+        System.out.println(Student.contains("Zayd"));
+        System.out.println(Student2.contains("Zain"));
+        ArrayList<Integer> Age = new ArrayList<>();
+        //Age.add(21);
+        //Age.add(22);
+        //Age.add(23);
+        Age.ensureCapacity(15);
+        for(int i = 0; i<=15; i++){
+            Age.add(i);
+        }
+
+        ArrayList<Integer> Number = new ArrayList<Integer>();
+        Number.add(22);
+        Number.add(23);
+        Number.add(22);
+        Number.add(29);
+        Number.add(59);
+        Number.add(51);
+        Number.add(52);
+        Number.add(53);
+        Number.add(54);
+        Number.add(55);
+        //System.out.println(Number);
+       // System.out.println(Number.indexOf(59));
+        //System.out.println(Number.lastIndexOf(22));
+       // Number.replaceAll(n-> n+(n-1));
+        //Number.removeIf(n -> n%2 ==0);
+        //Number.removeFirst();
+        //Number.removeLast();
+        System.out.println(Number);
+        ArrayList<Integer> Number2= new ArrayList<>();
+        Number2.add(23);
+        Number2.add(22);
+        Number2.add(29);
+        Number2.add(30);
+        Number2.add(32);
+        Number2.add(33);
+        Number2.add(34);
+       // Number.retainAll(Number2);
+        System.out.println(Number);
+       // System.out.println(Number.size());
+        Spliterator<Integer> s1 = Number.spliterator();
+        Spliterator<Integer> s2 = s1.trySplit();
+        System.out.println("--------First Spliter In Action-----");
+        while (s1.tryAdvance((n) ->{System.out.println(n);}));
+
+        System.out.println("------Second Spliter in Action -----");
+        while (s2.tryAdvance((n) ->{
+            System.out.println(n);
+        }));
+        System.out.println(Number2);
+        System.out.println(Number2.subList(0,2));
+
+
+
+
+    }
+}
