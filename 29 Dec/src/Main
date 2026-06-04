@@ -1,0 +1,126 @@
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Main{
+    public static void main(String[] args){
+        List<List<String>> listOfLists = Arrays.asList(
+                Arrays.asList("Reflection", "Collection", "Stream"),
+                Arrays.asList("Structure", "State", "Flow"),
+                Arrays.asList("Sorting", "Mapping", "Reduction", "Stream")
+        );
+        Set<String> intermidateResults = new HashSet<>();
+        Set<String> intermidateResults2 = new HashSet<>();
+        List<String> results = listOfLists.stream().
+                flatMap(List::stream).filter(s->s.startsWith("S")).map(String::toUpperCase).
+                distinct().sorted().peek(s->intermidateResults.add(s)).collect(Collectors.toList());
+       List<String> results2= listOfLists.stream().flatMap(List::stream).filter(s->s.startsWith("R")).map(String::toUpperCase).distinct().sorted().peek(s->intermidateResults2.add(s)).collect(Collectors.toList());
+
+
+
+        System.out.println("--------------------");
+        System.out.println("Intermediate Results Filtered with 'S'");
+        intermidateResults.forEach(System.out::println);
+        System.out.println(" ");
+        System.out.println(" ");
+        System.out.println("Intermidate Results Filtered with 'R'");
+        intermidateResults2.forEach(System.out::println);
+        System.out.println("-----Complete Results-----");
+        results.forEach(System.out::println);
+
+    }
+}
+
+
+
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class Main{
+    public static void main(String[] args){
+        List<String> expirimentList = Arrays.asList("Asghar","Rasward","Tahir","Ikram");
+
+        expirimentList.stream().map(s-> s.charAt(1)).forEach(System.out::println);
+    }
+ }
+
+
+
+
+ import java.util.*;
+ import java.util.stream.Collectors;
+ import java.util.stream.Stream;
+
+ public class Main{
+     public static void main(String[] args){
+         List<Integer> evenNumbers = Arrays.asList(2,4,6,8);
+         List<Integer> empty = Arrays.asList();
+         List<Integer> primeNumbers = Arrays.asList(3,5,7,11,13,17);
+         List<Integer> oddNumbers = Arrays.asList(1,3,5,7,9,11);
+
+         List<List<Integer>> listOfLists = Arrays.asList(evenNumbers,empty,oddNumbers);
+         System.out.println("--List Before Flattening--");
+         System.out.println(listOfLists);
+         List<Integer> listOfInts = listOfLists.stream().flatMap(s-> s.stream()).collect(Collectors.toList());
+         System.out.println("After Flattening");
+         System.out.println(listOfInts);
+
+
+     }
+  }
+
+
+
+
+
+
+
+
+
+
+  import java.util.*;
+  import java.util.stream.Collectors;
+
+
+  public class Main {
+      public static void main(String[] args){
+          List<Employe> employee = new ArrayList<>();
+          employee.add(new Employe("Muhammad","IT",50000,31,11));
+          employee.add(new Employe("Adnan","SE",90000,29,23));
+          employee.add(new Employe("Sami","IT",49000,32,5));
+          employee.add(new Employe("Asfand","HR",85000,22,2));
+          employee.add(new Employe("Zain","SE",50000,23,1));
+          employee.add(new Employe("Akbar","SE",150000,31,10));
+
+          Map<Boolean, List<Employe>> employBySalary = employee.stream().collect(Collectors.partitioningBy(employe ->employe.getSalary()>60000));
+
+
+
+
+          System.out.println("Employee With Salary Greater then 60000");
+          employBySalary.get(true).forEach(System.out::println);
+
+          System.out.println("Employee With Salary Greater then 60000");
+          employBySalary.get(false).forEach(System.out::println);
+
+
+          Map<String, List<Employe>> employByDepartment = employee.stream().collect(Collectors.groupingBy(employ -> employ.getDepartment()));
+
+
+          employByDepartment.forEach((department,employList)-> {
+              System.out.println("Department"+ department);
+              employList.forEach(System.out::println);
+          });
+          System.out.println("Employes With Age Greater then 30 years");
+          employee.stream().filter(n->n.getAge()>30).forEach(System.out::println);
+          System.out.println("Employes With Age Below 30 years");
+          employee.stream().filter(n->n.getAge()<30).forEach(System.out::println);
+          System.out.println("--------------with age sequence in reverse order------------");
+          employee.stream().sorted(Comparator.comparing(Employe::getAge).reversed()).forEach(System.out::println);
+          System.out.println("--------------with age sequence in Normal order------------");
+          employee.stream().sorted(Comparator.comparing(Employe::getAge)).forEach(System.out::println);
+
+
+      }
+  }
