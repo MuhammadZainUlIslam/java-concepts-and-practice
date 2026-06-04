@@ -1,0 +1,160 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter Name: ");
+            String name = input.nextLine();
+
+            System.out.print("Enter Registration ID: ");
+            String regID = input.nextLine();
+
+            System.out.print("Enter Age: ");
+            int age = input.nextInt();
+
+            System.out.print("Enter Driving Test Score: ");
+            int dvScore = input.nextInt();
+
+            System.out.print("Enter Fitness Score: ");
+            int ftScore = input.nextInt();
+
+            PersonDTO dto = new PersonDTO(name, regID, age, dvScore, ftScore);
+            Person person = new Person(dto);
+
+            boolean exit = false;
+
+            while (!exit) {
+                System.out.println("\n===== MENU =====");
+                System.out.println("1. View Personal Details");
+                System.out.println("2. Apply For National ID Card");
+                System.out.println("3. Apply For Driving Licence");
+                System.out.println("4. Apply For Sports Club");
+                System.out.println("5. Exit");
+
+                System.out.print("Choose option: ");
+                int choice = input.nextInt();
+
+                try {
+                    switch (choice) {
+                        case 1:
+                            person.displayRecord();
+                            break;
+
+                        case 2:
+                            person.registerForNationalRecord();
+                            break;
+
+                        case 3:
+                            person.getDrivingLicence();
+                            break;
+
+                        case 4:
+                            person.registerToSportsClub();
+                            break;
+
+                        case 5:
+                            exit = true;
+                            System.out.println("Exiting program...");
+                            break;
+
+                        default:
+                            System.out.println("Invalid choice!");
+                    }
+                } catch (IllegalArgumentException | IllegalStateException e) {
+                    System.out.println("Error: " + e.getMessage());
+                }
+            }
+
+        } catch (Exception e) {
+            System.out.println("Fatal Error: " + e.getMessage());
+        } finally {
+            input.close();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import java.util.Scanner;
+
+import java.util.*;
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        // System.out.println(thrownEx());
+        int marks[]=new int[3];
+        marks[0]=22;
+        marks[1]=50;
+        marks[2]=21;
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter Any Index Number From Above Array");
+        int number = input.nextInt();
+        System.out.println("Enter the number you want to devide "+marks[number]+"  with.");
+        int newN = input.nextInt();
+        try {
+            System.out.println("The Value at Following is: "+number);
+            System.out.println("Output/Result = "+marks[number]/newN);
+        }
+        catch (ArithmeticException e){
+            System.out.println("Arithmetical Error Occured..!\n"+e);
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Array doesn't contain your provided index");
+        }
+        catch (Exception e){
+            System.out.println("Enexpected Error Occured");
+        }
+
+        }
+
+
+
+
+     /*   int a = 10;
+        int b = 0;
+        try {
+            int c = a / b;
+            System.out.println(c);
+        }
+        catch (ArithmeticException e){
+            System.out.println("Failed to calculate this value\n>>>"+e+"<<<<");
+
+        }
+
+
+    }
+/*
+    private static int displayAny(){
+        try{
+            return 12;
+        }
+        catch (Exception e){
+            return 33;
+        }
+        finally {
+            return 34;
+        }
+    }
+*/
+
+
+}
