@@ -1,0 +1,193 @@
+import java.util.*;
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        List<Student> s1 = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        while (true) {
+            System.out.println("\n----Student Record System----");
+            System.out.println("1) Input Student Record");
+            System.out.println("2) Display Student Record");
+            System.out.println("3) Remove Student");
+            System.out.println("4) Exit");
+
+            int choice = input.nextInt();
+            input.nextLine();
+
+            switch (choice) {
+
+                case 1:
+                    System.out.println("How Many Students You Want To Enter:");
+                    int n = input.nextInt();
+                    input.nextLine();
+
+                    for (int i = 0; i < n; i++) {
+                        System.out.println("\nEnter Record Of Student " + (i + 1));
+
+                        System.out.print("Enter Name: ");
+                        String name = input.nextLine();
+
+                        System.out.print("Enter Registration No: ");
+                        String reg = input.nextLine();
+
+                        System.out.print("Enter Section: ");
+                        String section = input.nextLine();
+
+                        s1.add(new Student(name, reg, section));
+                        System.out.println("Student Record Added Successfully!");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("----------Student Record---------");
+                    if(s1.isEmpty()){
+                        System.out.println("No Record Found");
+                    }
+                    else {
+                        for (Student s : s1) {
+                            s.displayStudentRecord();
+                        }
+                    }
+                    break;
+                case 3:
+                    System.out.print("Enter Registration No to Remove: ");
+                    String r = input.nextLine();
+                    s1.removeIf(stu -> stu.getRegistrationNo().equals(r));
+                    System.out.println("Student Removed (if existed)");
+                    break;
+
+                case 4:
+                    System.out.println("Exiting...");
+                    return;
+
+                default:
+                    System.out.println("Invalid Choice!");
+
+
+                }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+/////////////list
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        List<String> list = new list<>();
+
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+
+        list.set(3,"4");
+        list.remove(3);
+        list.add(1,"Muhammad");
+
+
+        System.out.println("Elements of List are:");
+
+        // Iterating through the list
+        for (String s : list) {
+            System.out.println(s);
+        }
+        boolean yes=list.contains("1");
+        System.out.println(yes);
+        list.size();
+        String one = list.get(0);
+        String muhammad = list.get(1);
+        String two = list.get(2);
+        String three = list.get(3);
+        String four = list.get(3);
+        System.out.println(one+two+three+four+muhammad);
+        System.out.println(one+two+muhammad+three+four);
+        int size = list.size();
+        System.out.println("Size Of Above List Is = "+size);
+
+    }
+}
+
+
+
+
+
+
+
+
+////// sorting funcations
+import java.util.*;
+
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<String> cars = new ArrayList<>();
+        cars.add("Honda");
+        cars.add("BMW");
+        cars.add("Bugatti");
+        cars.add("Bentley");
+
+
+
+        list.add(1);
+        list.add(66);
+        list.add(98);
+        list.add(23);
+        list.add(15);
+        list.add(22);
+        list.add(76);
+        list.add(38);
+        list.add(26);
+        list.add(12);
+        list.set(0,62);
+        list.remove(3);
+
+
+
+        System.out.println("Elements of List are:");
+
+        // Iterating through the list
+        for (int s : list) {
+            System.out.println(s);
+        }
+
+        boolean yes=list.contains(22);
+        System.out.println(yes);
+        int size = list.size();
+        System.out.println("Size Of Above List Is = "+size);
+        Collections.sort(list);
+        System.out.println("---Correct Ordered-----");
+        for(int i :list){
+            System.out.println(+i);
+        }
+        System.out.println("---Reversed Ordered-----");
+        Collections.sort(list,Collections.reverseOrder());
+        for(int i: list){
+            System.out.println(i);
+        }
+        System.out.println("Elements of Cars are:");
+        for (String c : cars) {
+            System.out.println(c);
+        }
+        System.out.println("---Reversed Ordered-----");
+        Collections.sort(cars,Collections.reverseOrder());
+        for(String c: cars){
+            System.out.println(c);
+        }
+
+
+
+
+
+    }
+}
