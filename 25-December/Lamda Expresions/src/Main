@@ -1,0 +1,89 @@
+/*
+ interface StringFunction {
+    String run(String str);
+}
+
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> student = new ArrayList<>();
+        ArrayList<Student> s1 = new ArrayList<>();
+
+        StringFunction exclaim = (s) -> s + "!";
+        StringFunction ask = (s) -> s + "?";
+        printFormatted("Hi ",exclaim);
+        printFormatted("How are you ",ask);
+    }
+
+    public static void printFormatted(String str, StringFunction formate){
+        String results = formate.run(str);
+        System.out.println(results);
+    }
+}
+
+
+
+/*
+        s1.add(new Student("Ali", "FA22BSSE001", 21));
+        s1.add(new Student("Hamza", "FA221BSSE002", 22));
+        s1.add(new Student("Muhammad Zain Ul Islam", "FA20BSSE087", 23));
+        student.add(1);
+        student.add(2);
+        student.add(3);
+        student.add(4);
+        student.add(5);
+        student.add(6);
+        student.forEach((n) -> {
+            System.out.println("Student: " + n);
+        });
+        Consumer<Integer> method = (n) -> {
+            System.out.println(n);
+        };
+        student.forEach(method);
+
+
+        for (Student s : s1) {
+            System.out.println("Student Name: " + s.getName());
+            System.out.println("Registration No:" + s.getID());
+            System.out.println("Student Age:" + s.getID());
+        }
+    }
+
+
+
+
+
+
+
+
+public class Main {
+    public static void main(String[] args) {
+        Functions add = (a, b) -> a + b;
+        Functions multiply =(a,b) -> a*b;
+        Functions subtract = (a,b) ->a-b;
+        Functions divide = (a,b) ->a/b;
+        System.out.println("A + B ="+add.operations(12,21));
+        System.out.println("A * B ="+multiply.operations(6,20));
+        System.out.println("A - B ="+subtract.operations(12,2));
+        System.out.println("A / B ="+divide.operations(6,3));
+
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Muhammad Zain Ul Islam");
+        names.add("Raja Atif");
+        names.add("Hafiz Abdullah");
+        names.add("ALi Usama");
+        names.add("Waseem Adnan");
+        names.add("Ali Haider");
+        names.add("Mustafa Haider");
+        names.add("Malik Haider");
+        System.out.println("Display All Names");
+        names.forEach(n->{
+            System.out.println(n);
+        });
+        System.out.println("--------Filtered Names--------");
+        System.out.println("Starting with letter 'A'");
+        names.stream().filter(n ->n.startsWith("A")).map(n -> n.toUpperCase()).forEach(n-> System.out.println(n));
+        System.out.println("Starting with letter 'M'");
+        names.stream().filter(n ->n.startsWith("M")).map(n->n.toUpperCase()).forEach(n-> System.out.println(n));
+        names.stream().filter(n-> n.contains("Haider")).map(n-> n.toUpperCase()).forEach(n-> System.out.println(n));
+
+
